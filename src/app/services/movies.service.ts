@@ -48,11 +48,15 @@ export class MoviesService {
     return this.ejecutarQuery<RespuestaMDB>(query);
   }
 
-  getPeliculaDetalle(id: string){
+  getPeliculaDetalle(id: string) {
     return this.ejecutarQuery<PeliculaDetalle>(`/movie/${id}?a=1`);
   }
 
-  getActoresPelicula(id: string){
+  getActoresPelicula(id: string) {
     return this.ejecutarQuery<RespuestaCredits>(`/movie/${id}/credits?a=1`);
+  }
+
+  buscarPeliculas(texto: string) {
+    return this.ejecutarQuery(`/search/movie?query=${texto}`);
   }
 }
